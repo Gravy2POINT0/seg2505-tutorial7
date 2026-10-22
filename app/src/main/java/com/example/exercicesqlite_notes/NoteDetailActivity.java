@@ -28,12 +28,14 @@ public class NoteDetailActivity extends AppCompatActivity {
     }
 
     public void saveNote(View view) {
+        SQLiteManager sqLiteManager = SQLiteManager.instanceOfDatabase(this);
         String title = String.valueOf(titleEditText.getText());
         String description = String.valueOf(descEditText.getText());
 
         int id = Note.noteArrayList.size();
         Note newNote = new Note(id, title, description);
         Note.noteArrayList.add(newNote);
+        sqLiteManager.addNoteToDatabase(newNote);
         finish();
     }
 }

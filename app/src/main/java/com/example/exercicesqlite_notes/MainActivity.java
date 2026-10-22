@@ -20,11 +20,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-
+        loadFromDBToMemory();
         initWidgets();
         setNoteAdapter();
     }
 
+    private void loadFromDBToMemory() {
+        SQLiteManager sqLiteManager = SQLiteManager.instanceOfDatabase(this);
+        sqLiteManager.populateNoteListArray();
+    }
 
 
     private void initWidgets() {
