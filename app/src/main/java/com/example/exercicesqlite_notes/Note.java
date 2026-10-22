@@ -1,8 +1,11 @@
 package com.example.exercicesqlite_notes;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Note {
+
+    public static ArrayList<Note> noteArrayList = new ArrayList<>();
     private int id;
     private String title;
     private String description;

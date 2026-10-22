@@ -12,24 +12,26 @@ import androidx.annotation.Nullable;
 
 import java.util.List;
 
-public class NoteAdapter extends ArrayAdapter<Note> {
-    public NoteAdapter(Context context, List<Note> notes){
+public class NoteAdapter extends ArrayAdapter<Note>
+{
+    public NoteAdapter(Context context, List<Note> notes)
+    {
         super(context, 0, notes);
     }
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
+    {
         Note note = getItem(position);
-        if(convertView == null){
+        if(convertView == null)
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.note_cell, parent, false);
-        }
 
         TextView title = convertView.findViewById(R.id.cellTitle);
-        TextView description = convertView.findViewById(R.id.cellDesc);
+        TextView desc = convertView.findViewById(R.id.cellDesc);
 
         title.setText(note.getTitle());
-        description.setText(note.getDescription());
+        desc.setText(note.getDescription());
 
         return convertView;
     }
